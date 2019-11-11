@@ -6,7 +6,7 @@ public class testChatOther : MonoBehaviour
 {   public GameObject c2;
 	GameObject ck;
 	GameObject t;
-	bool move=false;
+	public bool move2=false;
 	
 	Vector3 chatPos2;
 	Vector3 momChatPos2;
@@ -22,10 +22,10 @@ public class testChatOther : MonoBehaviour
 	void Update(){
 		momChatPos2.y=ck.GetComponent<testChat>().chatBirthY;
 	 	if(Input.GetKeyDown(KeyCode.D)){
-     	move=true;
      	makeSpace2=true;
+     	
      	}
-     	if(move==true){
+     	if(move2==true){
      		if(Vector3.Distance(transform.position,momChatPos2)>0.01f){
      			transform.position=Vector3.Lerp(transform.position,momChatPos2,Time.deltaTime*10f);
 
@@ -36,7 +36,7 @@ public class testChatOther : MonoBehaviour
      		 ck.GetComponent<testChat>().moveChat();
      		 ck.GetComponent<testChat>().chatboxPos();
 
-     		 move=false;
+     		 move2=false;
      		}
      	}
      	if(ck.GetComponent<testChat>().makeSpace==true){
@@ -48,6 +48,7 @@ public class testChatOther : MonoBehaviour
      			 ck.GetComponent<testChat>().moveChat();
      		 ck.GetComponent<testChat>().chatboxPos();
      		 ck.GetComponent<testChat>().makeSpace=false;
+     		 ck.GetComponent<testChat>().move1=true;
 
      		}
 

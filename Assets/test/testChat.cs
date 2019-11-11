@@ -15,7 +15,7 @@ public class testChat : MonoBehaviour
 	Vector3 momChatPos;
 	public bool makeSpace=false;
 	
-	bool move=false;
+	public bool move1=false;
 	 void Start(){
 	 	ck2=GameObject.Find("chat2");
 	 	pos=transform.position;
@@ -30,8 +30,8 @@ public class testChat : MonoBehaviour
 	 	
 	 	momChatPos.y=chatBirthY;
 	 	if(Input.GetKeyDown(KeyCode.A)){
-     	 makeSpace=true;
-     	 move=true;
+     	
+     	makeSpace=true;
 
      	 
      	
@@ -40,16 +40,17 @@ public class testChat : MonoBehaviour
      	
 	 }
 	
-	 if(move==true){
+	 if(move1==true){
       if(Vector3.Distance(transform.position,momChatPos)>0.01f){
      		 transform.position=Vector3.Lerp(transform.position,momChatPos,Time.deltaTime*10f);
      	}
      	else{
+     		 
      		t=(GameObject)Instantiate(c1,chatPos,Quaternion.identity);
      		 t.transform.parent=gameObject.transform;
      		moveChat();
      		chatboxPos();
-     		move=false;
+     		move1=false;
      		
      	}
 	 }
@@ -62,6 +63,7 @@ public class testChat : MonoBehaviour
      		moveChat();
      		chatboxPos();
      		ck2.GetComponent<testChatOther>().makeSpace2=false;
+     		ck2.GetComponent<testChatOther>().move2=true;
      		
      	}
 	 }
